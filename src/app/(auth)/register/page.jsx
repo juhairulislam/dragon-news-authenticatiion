@@ -11,6 +11,8 @@ const RegisterPage = () => {
 
         console.log(data , 'data')
         
+        const {email , name , password} = data ;
+        console.log(email , name , password)
     }
 
     console.log(watch('email'))
