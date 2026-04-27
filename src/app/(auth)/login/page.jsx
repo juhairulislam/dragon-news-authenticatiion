@@ -1,16 +1,16 @@
 'use client'
 import Link from 'next/link';
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const LoginPage = () => {
 
-    const handleLoginFunc = (e) =>{
-        e.preventDefault() ;
+    const {register , handleSubmit} = useForm()
 
-        const email = e.target.email.value ;
-        const password = e.target.password.value ;
+    const handleLoginFunc = (data) =>{
 
-        console.log(email, password)
+        console.log(data , 'data')
+        
 
     }
 
@@ -20,15 +20,15 @@ const LoginPage = () => {
 
 <h1 className='font-bold text-2xl text-center mb-6'>Login Your Account</h1>
 
-<form className='space-y-4' onSubmit={handleLoginFunc}>
+<form className='space-y-4' onSubmit={handleSubmit(handleLoginFunc)}>
 
     <fieldset className="fieldset">
   <legend className="fieldset-legend">Email</legend>
-  <input name='email' type="email" className="input" placeholder="Your Email" />
+  <input {...register("email")} type="email" className="input" placeholder="Your Email" />
 </fieldset>
     <fieldset className="fieldset">
   <legend className="fieldset-legend">Password</legend>
-  <input name='password' type="password" className="input" placeholder="Your Password" />
+  <input {...register("password")} type="password" className="input" placeholder="Your Password" />
 </fieldset>
 
 <button className='btn w-full bg-slate-50 text-black'>Login</button>
