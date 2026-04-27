@@ -5,14 +5,15 @@ import { useForm } from 'react-hook-form';
 
 const LoginPage = () => {
 
-    const {register , handleSubmit} = useForm()
+    const {register , handleSubmit , formState : {errors}} = useForm()
 
     const handleLoginFunc = (data) =>{
 
         console.log(data , 'data')
         
-
     }
+
+    console.log(errors)
 
     return (
         <div className='container mx-auto min-h-[80vh] flex justify-center items-center'>
@@ -24,11 +25,24 @@ const LoginPage = () => {
 
     <fieldset className="fieldset">
   <legend className="fieldset-legend">Email</legend>
-  <input {...register("email")} type="email" className="input" placeholder="Your Email" />
+  <input {...register("email", {required:"Email is required"})} type="email" className="input" placeholder="Your Email" />
+
+  {
+    errors.email && (
+        <p className='text-red-500'>{errors.email.message}</p>
+    )
+     }
 </fieldset>
     <fieldset className="fieldset">
   <legend className="fieldset-legend">Password</legend>
-  <input {...register("password")} type="password" className="input" placeholder="Your Password" />
+  <input {...register("password" , {required:"Password is required"})} type="password" className="input" placeholder="Your Password" />
+
+  
+  {
+    errors.password && (
+        <p className='text-red-500'>{errors.password.message}</p>
+    )
+     }
 </fieldset>
 
 <button className='btn w-full bg-slate-50 text-black'>Login</button>
