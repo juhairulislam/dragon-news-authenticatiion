@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 
 const LoginPage = () => {
 
-    const {register , handleSubmit , formState : {errors}} = useForm()
+    const {register , handleSubmit , formState : {errors} , watch} = useForm()
 
     const handleLoginFunc = (data) =>{
 
@@ -13,7 +13,7 @@ const LoginPage = () => {
         
     }
 
-    console.log(errors)
+    console.log(watch('email'))
 
     return (
         <div className='container mx-auto min-h-[80vh] flex justify-center items-center'>
