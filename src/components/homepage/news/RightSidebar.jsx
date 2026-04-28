@@ -10,7 +10,7 @@ const RightSidebar = () => {
       provider: "google",
     });
 
-    console.log(data, 'data')
+    // console.log(data, 'data')
   }
   const handleSignInGithub =async () => {
     const data = await authClient.signIn.social({
