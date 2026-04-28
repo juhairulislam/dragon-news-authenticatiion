@@ -7,7 +7,7 @@ import NavLink from "./NavLink";
 import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
-  const { data: session } = authClient.useSession() ;
+  const { data: session , isPending } = authClient.useSession() ;
 
   const user = session?.user;
 
@@ -30,13 +30,20 @@ const Navbar = () => {
         </li>
       </ul>
 
+      { isPending? <h1>Loading...</h1>:
+
+        user?
       <div className="flex items-center gap-2">
         <h1 className="font-bold">Hello , {user.name} !</h1>
         <Image src={userAvatar} alt="User avatar" width={60} height={60} />
-        <button className="btn bg-purple-500 text-white">
+
+        <button className="btn bg-purple-500 text-white">Logout</button>
+        
+      </div> : <button className="btn bg-purple-500 text-white">
           <Link href={"/login"}>Login</Link>
         </button>
-      </div>
+      }
+
     </div>
   );
 };
