@@ -37,7 +37,7 @@ const Navbar = () => {
         <h1 className="font-bold">Hello , {user.name} !</h1>
         <Image src={userAvatar} alt="User avatar" width={60} height={60} />
 
-        <button className="btn bg-purple-500 text-white">Logout</button>
+        <button onClick={async ()=> await authClient.signOut()} className="btn bg-purple-500 text-white">Logout</button>
         
       </div> : <button className="btn bg-purple-500 text-white">
           <Link href={"/login"}>Login</Link>
