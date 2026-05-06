@@ -5,7 +5,7 @@ const LeftSidebar = ({ categories, activeId }) => {
   return (
     <div>
       <h2 className="font-bold text-lg">All categories</h2>
-      <ul className="flex flex-col gap-3 mt-6">
+      <ul className="flex flex-col gap-4 mt-6">
         {categories.news_category.map((category) => {
           return (
             <li
