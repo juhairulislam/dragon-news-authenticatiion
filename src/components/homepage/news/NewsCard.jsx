@@ -11,7 +11,7 @@ const NewsCard = ({ news }) => {
     <div className="card bg-base-100 shadow-sm">
       <div className="card-body">
         {/* Author info */}
-        <div className="flex justify-between items-center bg-slate-200 p-4">
+        <div className="flex justify-between items-center bg-slate-200 p-5">
           <div className="flex gap-2 items-center">
             <Image
               src={news.author?.img}
