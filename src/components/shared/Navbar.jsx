@@ -30,7 +30,7 @@ const Navbar = () => {
         </li>
       </ul>
 
-      { isPending? <h1>Loading...</h1>:
+      { isPending? <h1>Loading ... Loading...</h1>:
 
         user?
       <div className="flex items-center gap-2">
